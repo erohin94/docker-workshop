@@ -80,3 +80,7 @@ Docker используется во множестве ситуаций:
 - Запуск пайплайнов в облаке: AWS Batch, Kubernetes Jobs
 - Spark: аналитический движок для обработки больших данных
 - Serverless: AWS Lambda, Google Cloud Functions
+
+Вводим команду и видим что Docker установлен.
+
+<img width="589" height="329" alt="image" src="https://github.com/user-attachments/assets/732b1140-0736-4010-9db9-60a0ef924918" />
