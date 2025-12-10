@@ -1,4 +1,6 @@
-# docker-workshop
+# Docker-workshop
+
+Workshop Codespaces
 
 # Docker and PostgreSQL: Data Engineering Workshop
 
@@ -16,13 +18,9 @@
 - SQL обновление с использованием реальных данных
 - Лучшие практики для рабочих процессов инженерии данных в контейнерах
 
+# Первоначальная настройка
 
-
-
-
-Workshop Codespaces
-
-Создаю репозиторий, в gitignore добавляю python.
+Создаю репозиторий, при создании в gitignore добавляю python.
 
 Для работы буду использовать GitHub Codespaces - это облачная среда разработки (VS Code в браузере), которая запускается прямо в GitHub.
 Там есть полностью настроенный контейнер Linux со всем, что нужно для разработки: Python, Docker, Git, расширения VS Code, терминал и т. д..
