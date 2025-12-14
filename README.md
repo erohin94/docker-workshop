@@ -84,3 +84,47 @@ Docker используется во множестве ситуаций:
 Вводим команду и видим что Docker установлен.
 
 <img width="589" height="329" alt="image" src="https://github.com/user-attachments/assets/732b1140-0736-4010-9db9-60a0ef924918" />
+
+Все что находится внутри контейнера Docker, полностью изолированно от того что есть на нашем хост компьютере. Можно все удалить внутри контейнера и это никак не повлияет на наш хост компьютер.
+
+Запустить простой контейнер: `docker run hello-world`
+
+<img width="648" height="445" alt="image" src="https://github.com/user-attachments/assets/40a1cb0b-719c-4b10-8dfb-5b41c19bd447" />
+
+Запустить что-нибудь более сложное: `docker run ubuntu`
+
+<img width="580" height="107" alt="image" src="https://github.com/user-attachments/assets/5218a446-2059-41d3-b8c4-13e21730f99b" />
+
+Загрузили образ Ubuntu, но ничего непроизошло. Так как мы запустили образ Docker, что то выполнилось и мы вернулись снова к нашему компьютеру. Поэтому можем провалится внутрь контейнера Ubuntu.
+
+Ничего не происходит. Необходимо запустить его в -it режиме: `docker run -it ubuntu`
+
+<img width="166" height="35" alt="image" src="https://github.com/user-attachments/assets/3b0bf8fe-d563-4cf5-8537-48f2d6194d8b" />
+
+<img width="722" height="35" alt="image" src="https://github.com/user-attachments/assets/e7da0bfb-9e17-47ca-afa6-1cf54b773230" />
+
+Теперь все делаем изолированно от хост машины.
+
+Проверить установлен ли puthon: `python3`
+
+У нас там нет python, так что установим его: `apt update && apt install python3`
+
+Проверяем: `python3 -V`
+
+Это та версия которая установлена внутри Docker
+
+<img width="595" height="94" alt="image" src="https://github.com/user-attachments/assets/ba87f7ca-5914-487d-8800-3e2e643fdf29" />
+
+При установке попросит нажать `Do you want to continue? [Y/n] Y` и выбрать регион, нажимаем просто везде `1`. Либо `8` потом `1`.
+
+<img width="1443" height="276" alt="image" src="https://github.com/user-attachments/assets/985136c2-3e74-4ee9-b135-02ea69513aa5" />
+
+Проверка
+
+<img width="244" height="37" alt="image" src="https://github.com/user-attachments/assets/a3eb82fa-f7a9-4f24-bc34-fc58e2409662" />
+
+Тепрь нажимаю `Ctrl+D` и выхожу из контейнера. И снова оказываюсь на своем хост компьютере.
+
+<img width="214" height="50" alt="image" src="https://github.com/user-attachments/assets/a38fe3fe-340b-447a-ab15-083587cd5ab5" />
+
+Если захочу опять вернуться в контейнер, то ввожу 
