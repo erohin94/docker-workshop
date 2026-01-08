@@ -265,7 +265,8 @@ for filepath in current_dir.iterdir():
 
 <img width="762" height="69" alt="image" src="https://github.com/user-attachments/assets/5f12c1fa-1789-46cc-9c36-a7733e350d15" />
 
+# Конвееры данных
 
-
+28:00
 
 
