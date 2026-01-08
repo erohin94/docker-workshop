@@ -169,12 +169,48 @@ Docker используется во множестве ситуаций:
 ```
 docker rm `docker ps -aq`
 ```
-Команда `docker ps -aq` просто выведет идентификаторы контейнеров.
+Команда `docker ps -a` просто выведет идентификаторы контейнеров.
 
 <img width="710" height="362" alt="image" src="https://github.com/user-attachments/assets/4a907dae-1994-4245-a478-b304abbda64b" />
 
 Очистили нашу среду.
 
-Теперь допутим хотим сохранить состояние, что надо сделать? Представим что есть папка test и в ней что то есть.
+Теперь допутим хотим сохранить состояние, что надо сделать? Представим что есть папка test и в ней что то есть (file1.txt, file2.txt, file3.txt). В файле file1.txt есть текст. Остальные файлы пустые
 
-20-50-00
+```
+mkdir test
+cd test
+touch file1.txt file2.txt file3.txt
+echo "Hello from host" > file1.txt
+```
+
+<img width="320" height="172" alt="image" src="https://github.com/user-attachments/assets/728c25d5-2ef3-465a-b300-c549d7e3ddfb" />
+
+Нам надо получить доступ к этим файлам из нашего контейнера Docker. Для этого надо создать скрипт чтобы запускать из контейнера докер. 
+
+Но для начала создадим простой скрипт test/script.py, который запускается локально на нашем компьютере и показывает файлы в папке, позже будем запускть его внтури контейнера Docker:
+
+```
+from pathlib import Path
+
+current_dir = Path.cwd()
+current_file = Path(__file__).name
+
+print(f"Files in {current_dir}:")
+
+for filepath in current_dir.iterdir():
+    if filepath.name == current_file:
+        continue
+
+    print(f"  - {filepath.name}")
+
+    if filepath.is_file():
+        content = filepath.read_text(encoding='utf-8')
+        print(f"    Content: {content}")
+```
+
+<img width="916" height="557" alt="image" src="https://github.com/user-attachments/assets/ace50221-0c87-441f-9483-f5a09aa1bbba" />
+
+Теперь мы хотим запустить этот скрипт внутри Docker. Используем тома. Поднимемся на уровень выше `cd..`. Сейчас нахожусь в корневом каталоге.
+
+<img width="230" height="87" alt="image" src="https://github.com/user-attachments/assets/5b6f96ac-d714-40f9-b053-7d8c7e57243d" />
