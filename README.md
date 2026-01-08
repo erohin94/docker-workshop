@@ -214,3 +214,58 @@ for filepath in current_dir.iterdir():
 Теперь мы хотим запустить этот скрипт внутри Docker. Используем тома. Поднимемся на уровень выше `cd..`. Сейчас нахожусь в корневом каталоге.
 
 <img width="230" height="87" alt="image" src="https://github.com/user-attachments/assets/5b6f96ac-d714-40f9-b053-7d8c7e57243d" />
+
+Таким образом папка test будет доступна как на хост машине, так и внутри докер контейнера. Тоесть все что находится в папке test, будет достпуно внутри контейнера докер. Для этого использую последнюю команду докер.
+
+`docker run -it --entrypoint=bash -v $(pwd) python:3.13.11-slim`
+
+Эта команда запускает интерактивный контейнер из образа python:3.13.11-slim и сразу открывает в нём bash-терминал (вместо стандартного запуска Python).
+Флаг -v $(pwd) монтирует текущую директорию хоста в контейнер как volume, чтобы можно было работать с файлами из неё внутри контейнера.
+
+<img width="1005" height="507" alt="image" src="https://github.com/user-attachments/assets/0a8504e0-e161-4238-b204-1e5727ac0bd9" />
+
+<img width="496" height="87" alt="image" src="https://github.com/user-attachments/assets/b052b36f-0896-45f5-b861-606ae3db6473" />
+
+Отобразим содержимое папки test:
+
+Сейчас мы внутри контейнера, поэтому сначала выйду из него `exit` затем ввожу команду
+
+`docker run -it --entrypoint=bash -v $(pwd)/test:/app/test python:3.13.11-slim`
+
+Эта команда запускает интерактивный контейнер из образа python:3.13.11-slim, открывая внутри bash.
+Каталог $(pwd)/test с хоста монтируется в контейнер по пути /app/test, поэтому файлы из этой папки доступны и изменяемы внутри контейнера. 
+
+<img width="773" height="103" alt="image" src="https://github.com/user-attachments/assets/5ea00280-8fc5-49ab-9ad6-bfafebb65630" />
+
+Видим папку app, захожу в нее `cd app`. А затем в папку `test`.
+
+<img width="331" height="118" alt="image" src="https://github.com/user-attachments/assets/ab5f62ed-1794-49fb-8a34-fbf26b78310d" />
+
+Видим все файлы, которые могу запустить с помощью python, так как в этом контейнере есть python:
+
+<img width="356" height="203" alt="image" src="https://github.com/user-attachments/assets/b679415f-43bb-4bb2-9db4-618d9681dab9" />
+
+То есть если у нас есть какие то файлы на нашем хост компьютере, которые мы хотим сделать доступными в контейнере, мы можем это легко сделать.
+
+Теперь попробуем все снести внутри контейнера, для этого выполняю команду:
+
+`rm -rf /` - Команда пытается удалить абсолютно всё: систему, библиотеки, бинарники, конфиги, данные.
+
+<img width="377" height="86" alt="image" src="https://github.com/user-attachments/assets/caea8346-2376-45a7-8661-22e5750c393a" />
+
+И вводим еще раз `rm -rf --no-preserve-root /` и нажимаю enter.
+
+Проверяем и видим что ничего не работает, так как все было удалено, сломали нашу систему. 
+
+<img width="689" height="113" alt="image" src="https://github.com/user-attachments/assets/0383f20e-23fb-4df3-95e8-ae5d444c8677" />
+
+Но так как мы в докер, то ничего страшного не произошло. Поэтому просто выходим `exit` и заново запускаем `docker run -it --entrypoint=bash -v $(pwd)/test:/app/test python:3.13.11-slim`
+
+<img width="426" height="64" alt="image" src="https://github.com/user-attachments/assets/67a0360e-9c86-4dd5-ad24-aadae071da91" />
+
+<img width="762" height="69" alt="image" src="https://github.com/user-attachments/assets/5f12c1fa-1789-46cc-9c36-a7733e350d15" />
+
+
+
+
+
