@@ -269,7 +269,6 @@ for filepath in current_dir.iterdir():
 
 **Конвейер передачи данных (Data Pipelines)** - это сервис, который принимает данные в качестве входных данных и выводит выходные данные. Например, считывает CSV-файл, каким-либо образом преобразует данные и сохраняет их в виде таблицы в базе данных PostgreSQL
 
-<img width="650" height="346" alt="image" src="https://github.com/user-attachments/assets/4ec723c7-af91-43ea-95f6-90adca99a44e" />
 
 
 28:00
