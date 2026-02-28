@@ -397,5 +397,5 @@ git status
 git commit -m 'pipline'
 ```
 
-****<img width="682" height="680" alt="image" src="https://github.com/user-attachments/assets/43a0527c-2bd5-4f66-a331-a9cda69abb7f" />
+<img width="682" height="680" alt="image" src="https://github.com/user-attachments/assets/43a0527c-2bd5-4f66-a331-a9cda69abb7f" />
 
