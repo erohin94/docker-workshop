@@ -273,3 +273,9 @@ for filepath in current_dir.iterdir():
 
 Использую [датасет nyc taxi](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
 
+Мы создадим конвейеры, которые:
+
+- Загружают данные в формате CSV из Интернета
+- Преобразуют и очищают данные с помощью pandas
+- Загружают их в PostgreSQL для запросов
+- Обрабатывают данные по частям для обработки больших файлов
