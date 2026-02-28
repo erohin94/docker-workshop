@@ -386,4 +386,16 @@ print(f"Running pipeline for day {day}")
 
 <img width="950" height="386" alt="image" src="https://github.com/user-attachments/assets/bbe3877e-48bc-455f-b379-d1f1a3677155" />
 
+После сделаем коммит
+
+```
+git status
+git add .
+cd ..
+git add .
+git status
+git commit -m 'pipline'
+```
+
+****<img width="682" height="680" alt="image" src="https://github.com/user-attachments/assets/43a0527c-2bd5-4f66-a331-a9cda69abb7f" />
 
