@@ -382,5 +382,8 @@ print(f"Running pipeline for day {day}")
 
 <img width="995" height="449" alt="image" src="https://github.com/user-attachments/assets/ae83fa93-593d-4e57-8de2-122ea697d684" />
 
+Обновим файл `.gitignore` чтобы в гитхаб не заливались файлы формата `parquet`. Пропишем `*.parquet` и сохраним файл. После сохранения все файлы формата .parquet, слева на панели будут выделятся серым цветом.
+
+<img width="950" height="386" alt="image" src="https://github.com/user-attachments/assets/bbe3877e-48bc-455f-b379-d1f1a3677155" />
 
 
