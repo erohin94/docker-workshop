@@ -296,7 +296,7 @@ print(f"Running pipeline for day {day}")
 
 Таким образом можно параметризировать пайплан, тоесть передавать тот мемсяц или день который нам нужен.
 
-Добавим pandas:
+Добавим pandas в глобальную среду `pip install pandas`, для тестирования кода:
 
 ```
 import pandas as pd
