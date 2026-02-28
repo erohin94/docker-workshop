@@ -323,3 +323,64 @@ df.to_parquet(f"output_day_{sys.argv[1]}.parquet")
 Теперь инициализируем проект на Python с помощью uv:
 
 `uv init --python=3.13`
+
+<img width="242" height="52" alt="image" src="https://github.com/user-attachments/assets/08e21c6a-622c-45a0-ab6a-99073bc34d05" />
+
+Видим что появилась структура папок. При этом создается файл `pyproject.toml` для управления зависимостями и файл `.python-версии`.
+
+<img width="263" height="136" alt="image" src="https://github.com/user-attachments/assets/6cd57c66-bae8-494a-aa1f-bf159291d429" />
+
+Сравним версии Python:
+
+```
+uv run which python  # Python in the virtual environment
+uv run python -V
+
+which python        # System Python
+python -V
+```
+
+Версия python в системе
+
+<img width="346" height="71" alt="image" src="https://github.com/user-attachments/assets/7fc508fa-a01a-4775-aff1-7fa5da38beb0" />
+
+Версия python в виртуальном окружении
+
+<img width="423" height="137" alt="image" src="https://github.com/user-attachments/assets/44a69643-d59b-47cf-b900-f9b9fcecac48" />
+
+Так же при запуске команды `uv run which python` создалось виртуальное окружение и появилась папка venv
+
+<img width="255" height="328" alt="image" src="https://github.com/user-attachments/assets/6008e0f3-b03d-4af5-ad9f-53e0865b40bf" />
+
+Теперь чтобы работать с изолированной средой, буду использовать `uv`.
+
+`uv run` -  использует изолированную среду.
+
+Добавим pandas и pyarrow
+
+`uv add pandas pyarrow`
+
+После того как установили библиотеки, в файле `pyproject.toml` добавились зависимости
+
+<img width="787" height="268" alt="image" src="https://github.com/user-attachments/assets/51bc89ce-67bd-4338-b220-960db829c18d" />
+
+Запускаю код:
+
+```
+import sys
+import pandas as pd
+
+print("arguments", sys.argv)
+day = int(sys.argv[1])
+df = pd.DataFrame({"A": [1, 2], "B": [3, 4]})
+print(df.head())
+df.to_parquet(f"output_day_{sys.argv[1]}.parquet")
+print(f"Running pipeline for day {day}")
+```
+
+И вижу наш паркет файл
+
+<img width="995" height="449" alt="image" src="https://github.com/user-attachments/assets/ae83fa93-593d-4e57-8de2-122ea697d684" />
+
+
+
