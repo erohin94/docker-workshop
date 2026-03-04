@@ -542,3 +542,5 @@ ENTRYPOINT ["python", "pipeline.py"]
 Выхожу из контейнера: `exit`
 
 # Запуск PostgreSQL в Docker
+
+57:00
