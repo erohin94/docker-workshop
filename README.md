@@ -540,7 +540,3 @@ ENTRYPOINT ["python", "pipeline.py"]
 <img width="446" height="152" alt="image" src="https://github.com/user-attachments/assets/157ee060-dd33-4cb4-bfcd-5da5b5696e5e" />
 
 Выхожу из контейнера: `exit`
-
-# Запуск PostgreSQL в Docker
-
-57:00
